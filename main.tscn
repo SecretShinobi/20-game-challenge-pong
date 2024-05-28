@@ -23,7 +23,7 @@ size = Vector2(160, 987)
 script = ExtResource("1_5kisn")
 
 [node name="Ball" parent="." instance=ExtResource("3_cccc8")]
-position = Vector2(300, 520)
+position = Vector2(447, 520)
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_g0ib3")
 

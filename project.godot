@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Pong"
-config/description="This is the my attempt for the first game for the 20 games challenge"
+config/description="This is the my attempt for the first game for the 20 games challenge (pong)"
 config/version="1.0"
 config/tags=PackedStringArray("20_game_challenge", "2d", "pong")
 run/main_scene="res://main.tscn"

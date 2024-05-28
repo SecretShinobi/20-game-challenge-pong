@@ -30,4 +30,4 @@ func _process(delta):
 
 
 func _on_reset():
-	pass
+	round_finished = false
