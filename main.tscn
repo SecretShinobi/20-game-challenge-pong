@@ -7,4 +7,3 @@
 script = ExtResource("1_5kisn")
 
 [node name="Game" parent="." instance=ExtResource("2_7i58b")]
-position = Vector2(960, 540)
