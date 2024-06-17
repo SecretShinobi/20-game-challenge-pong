@@ -12,7 +12,5 @@ var player_two_score = 0
 func _ready():
 	pass
 
+
 # Signal Methods
-
-
-# Functions
