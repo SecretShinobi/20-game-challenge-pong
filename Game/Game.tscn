@@ -1,9 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://wl0xeg5i454u"]
+[gd_scene load_steps=4 format=3 uid="uid://wl0xeg5i454u"]
 
+[ext_resource type="PackedScene" uid="uid://bvnwcf8swnk2u" path="res://Game/Barrier.tscn" id="1_8ylr5"]
 [ext_resource type="PackedScene" uid="uid://cfnoyoj8fxsam" path="res://Game/Ball/Ball.tscn" id="1_m2emn"]
 [ext_resource type="PackedScene" uid="uid://cvh7e7lowss2b" path="res://Game/Paddles/Paddle.tscn" id="2_o55df"]
 
 [node name="Game" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -1231.0
+offset_top = -627.0
+offset_right = 1271.0
+offset_bottom = 667.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -4.0
+offset_top = -424.0
+offset_right = 4.0
+offset_bottom = 424.0
+color = Color(0.556953, 0.556953, 0.556953, 1)
+
+[node name="BottomBarrier" parent="." instance=ExtResource("1_8ylr5")]
+position = Vector2(0, 450)
+
+[node name="TopBarrier" parent="." instance=ExtResource("1_8ylr5")]
+position = Vector2(0, -450)
 
 [node name="Ball" parent="." instance=ExtResource("1_m2emn")]
 
