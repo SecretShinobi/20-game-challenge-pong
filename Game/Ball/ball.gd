@@ -18,4 +18,6 @@ func _physics_process(delta):
 		velocity = velocity.bounce(collision.get_normal())
 		# Change the bounce angle if ball hits paddle based on dist. from center
 		if collision.get_collider() is CharacterBody2D:
-			print(collision.get_position())
+			var ball_y: float = get_global_position().y
+			var paddle_y: float = collision.get_collider().get_global_position().y
+			velocity.y = (ball_y - paddle_y) * 10
