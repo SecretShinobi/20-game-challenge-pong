@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://wl0xeg5i454u"]
+[gd_scene load_steps=6 format=3 uid="uid://wl0xeg5i454u"]
 
-[ext_resource type="PackedScene" uid="uid://bvnwcf8swnk2u" path="res://Game/Barrier.tscn" id="1_8ylr5"]
-[ext_resource type="PackedScene" uid="uid://cfnoyoj8fxsam" path="res://Game/Ball/Ball.tscn" id="1_m2emn"]
-[ext_resource type="PackedScene" uid="uid://cvh7e7lowss2b" path="res://Game/Paddles/Paddle.tscn" id="2_o55df"]
+[ext_resource type="PackedScene" uid="uid://bvnwcf8swnk2u" path="res://Game/barrier.tscn" id="1_8ylr5"]
+[ext_resource type="PackedScene" uid="uid://cfnoyoj8fxsam" path="res://Game/Ball/ball.tscn" id="1_m2emn"]
+[ext_resource type="PackedScene" uid="uid://cvh7e7lowss2b" path="res://Game/Paddles/paddle.tscn" id="2_o55df"]
+[ext_resource type="Script" path="res://Game/Paddles/player_one_paddle.gd" id="4_yj01j"]
+[ext_resource type="Script" path="res://Game/Paddles/player_two_paddle.gd" id="5_rv1m6"]
 
 [node name="Game" type="Node2D"]
 
@@ -28,8 +30,10 @@ position = Vector2(0, -450)
 
 [node name="Ball" parent="." instance=ExtResource("1_m2emn")]
 
-[node name="Paddle" parent="." instance=ExtResource("2_o55df")]
+[node name="LeftPaddle" parent="." instance=ExtResource("2_o55df")]
 position = Vector2(-750, 0)
+script = ExtResource("4_yj01j")
 
-[node name="Paddle2" parent="." instance=ExtResource("2_o55df")]
+[node name="RightPaddle" parent="." instance=ExtResource("2_o55df")]
 position = Vector2(750, 0)
+script = ExtResource("5_rv1m6")
