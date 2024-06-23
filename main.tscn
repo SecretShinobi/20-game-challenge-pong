@@ -11,3 +11,5 @@ script = ExtResource("1_5kisn")
 position = Vector2(960, 540)
 
 [node name="HUD" parent="." instance=ExtResource("3_6qm78")]
+
+[connection signal="round_finished" from="Game" to="." method="_on_game_round_finished"]

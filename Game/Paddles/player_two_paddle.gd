@@ -2,7 +2,7 @@ class_name PlayerTwo
 extends CharacterBody2D
 ## This is the class used to configure player two's parameters
 
-const SPEED = 500.0
+const SPEED = 750.0
 
 
 func _physics_process(delta):

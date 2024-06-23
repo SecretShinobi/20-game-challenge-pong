@@ -1,10 +1,5 @@
 extends Node2D
 
-# Variables
-var player_one_score = 0
-var player_two_score = 0
-
-
 # Signals
 
 
@@ -14,3 +9,7 @@ func _ready():
 
 
 # Signal Methods
+
+
+func _on_game_round_finished(player):
+	print(player )

@@ -1,39 +1,59 @@
-[gd_scene load_steps=6 format=3 uid="uid://wl0xeg5i454u"]
+[gd_scene load_steps=8 format=3 uid="uid://wl0xeg5i454u"]
 
 [ext_resource type="PackedScene" uid="uid://bvnwcf8swnk2u" path="res://Game/barrier.tscn" id="1_8ylr5"]
 [ext_resource type="PackedScene" uid="uid://cfnoyoj8fxsam" path="res://Game/Ball/ball.tscn" id="1_m2emn"]
+[ext_resource type="Script" path="res://Game/game.gd" id="1_vqh11"]
 [ext_resource type="PackedScene" uid="uid://cvh7e7lowss2b" path="res://Game/Paddles/paddle.tscn" id="2_o55df"]
+[ext_resource type="PackedScene" uid="uid://1enng0tjtprj" path="res://Game/Net/net.tscn" id="4_1nwfi"]
 [ext_resource type="Script" path="res://Game/Paddles/player_one_paddle.gd" id="4_yj01j"]
 [ext_resource type="Script" path="res://Game/Paddles/player_two_paddle.gd" id="5_rv1m6"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_vqh11")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Background" type="ColorRect" parent="Environment"]
 offset_left = -1231.0
 offset_top = -627.0
 offset_right = 1271.0
 offset_bottom = 667.0
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="Separator" type="ColorRect" parent="Environment"]
 offset_left = -4.0
 offset_top = -424.0
 offset_right = 4.0
 offset_bottom = 424.0
 color = Color(0.556953, 0.556953, 0.556953, 1)
 
-[node name="BottomBarrier" parent="." instance=ExtResource("1_8ylr5")]
+[node name="BottomBarrier" parent="Environment" instance=ExtResource("1_8ylr5")]
 position = Vector2(0, 450)
 
-[node name="TopBarrier" parent="." instance=ExtResource("1_8ylr5")]
+[node name="TopBarrier" parent="Environment" instance=ExtResource("1_8ylr5")]
 position = Vector2(0, -450)
 
-[node name="Ball" parent="." instance=ExtResource("1_m2emn")]
+[node name="Characters" type="Node2D" parent="."]
 
-[node name="LeftPaddle" parent="." instance=ExtResource("2_o55df")]
+[node name="Ball" parent="Characters" instance=ExtResource("1_m2emn")]
+
+[node name="LeftPlayer" type="Node2D" parent="Characters"]
+
+[node name="LeftNet" parent="Characters/LeftPlayer" instance=ExtResource("4_1nwfi")]
+position = Vector2(-950, 0)
+
+[node name="LeftPaddle" parent="Characters/LeftPlayer" instance=ExtResource("2_o55df")]
 position = Vector2(-750, 0)
 script = ExtResource("4_yj01j")
 
-[node name="RightPaddle" parent="." instance=ExtResource("2_o55df")]
+[node name="RightPlayer" type="Node2D" parent="Characters"]
+
+[node name="RightNet" parent="Characters/RightPlayer" instance=ExtResource("4_1nwfi")]
+position = Vector2(950, 0)
+
+[node name="RightPaddle" parent="Characters/RightPlayer" instance=ExtResource("2_o55df")]
 position = Vector2(750, 0)
 script = ExtResource("5_rv1m6")
+
+[connection signal="body_entered" from="Characters/LeftPlayer/LeftNet" to="." method="_on_left_net_body_entered"]
+[connection signal="body_entered" from="Characters/RightPlayer/RightNet" to="." method="_on_right_net_body_entered"]
