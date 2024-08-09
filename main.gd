@@ -9,7 +9,3 @@ func _ready():
 
 
 # Signal Methods
-
-
-func _on_game_round_finished(player):
-	print(player )

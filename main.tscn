@@ -1,15 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5wyiv6frj7i7"]
+[gd_scene load_steps=3 format=3 uid="uid://b5wyiv6frj7i7"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_5kisn"]
 [ext_resource type="PackedScene" uid="uid://wl0xeg5i454u" path="res://Game/game.tscn" id="2_7i58b"]
 [ext_resource type="PackedScene" uid="uid://dsvcjq45hqi07" path="res://HUD/hud.tscn" id="3_6qm78"]
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_5kisn")
 
 [node name="Game" parent="." instance=ExtResource("2_7i58b")]
 position = Vector2(960, 540)
 
 [node name="HUD" parent="." instance=ExtResource("3_6qm78")]
-
-[connection signal="round_finished" from="Game" to="." method="_on_game_round_finished"]

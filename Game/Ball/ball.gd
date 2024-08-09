@@ -6,6 +6,10 @@ extends CharacterBody2D
 ## game. The movement and behavior of the ball can be adjusted here
 
 
+# Signals
+signal player_scored(player)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	velocity = Vector2(-500.0, 0.0)
@@ -20,5 +24,19 @@ func _physics_process(delta):
 		if collision.get_collider() is CharacterBody2D:
 			var ball_y: float = get_global_position().y
 			var paddle_y: float = collision.get_collider().get_global_position().y
-			velocity.x *= 1.1
+			#velocity.x *= 1.1
 			velocity.y = (ball_y - paddle_y) * 5
+
+
+func reset_ball():
+	print("ball should be reset to default position")
+	print("ball should also move towards the side that lost that round")
+
+
+# Signal Methods
+func _on_left_net_body_entered(body):
+	reset_ball()
+
+
+func _on_right_net_body_entered(body):
+	reset_ball()

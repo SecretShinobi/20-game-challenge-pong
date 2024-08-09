@@ -29,31 +29,41 @@ color = Color(0.556953, 0.556953, 0.556953, 1)
 
 [node name="BottomBarrier" parent="Environment" instance=ExtResource("1_8ylr5")]
 position = Vector2(0, 450)
+collision_mask = 11
 
 [node name="TopBarrier" parent="Environment" instance=ExtResource("1_8ylr5")]
 position = Vector2(0, -450)
+collision_mask = 11
+
+[node name="LeftNet" parent="Environment" instance=ExtResource("4_1nwfi")]
+position = Vector2(-900, 0)
+collision_layer = 4
+collision_mask = 8
+
+[node name="RightNet" parent="Environment" instance=ExtResource("4_1nwfi")]
+position = Vector2(934, 0)
+collision_layer = 4
+collision_mask = 8
 
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Ball" parent="Characters" instance=ExtResource("1_m2emn")]
+collision_layer = 8
+collision_mask = 7
 
-[node name="LeftPlayer" type="Node2D" parent="Characters"]
-
-[node name="LeftNet" parent="Characters/LeftPlayer" instance=ExtResource("4_1nwfi")]
-position = Vector2(-950, 0)
-
-[node name="LeftPaddle" parent="Characters/LeftPlayer" instance=ExtResource("2_o55df")]
+[node name="LeftPaddle" parent="Characters" instance=ExtResource("2_o55df")]
 position = Vector2(-750, 0)
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("4_yj01j")
 
-[node name="RightPlayer" type="Node2D" parent="Characters"]
-
-[node name="RightNet" parent="Characters/RightPlayer" instance=ExtResource("4_1nwfi")]
-position = Vector2(950, 0)
-
-[node name="RightPaddle" parent="Characters/RightPlayer" instance=ExtResource("2_o55df")]
+[node name="RightPaddle" parent="Characters" instance=ExtResource("2_o55df")]
 position = Vector2(750, 0)
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("5_rv1m6")
 
-[connection signal="body_entered" from="Characters/LeftPlayer/LeftNet" to="." method="_on_left_net_body_entered"]
-[connection signal="body_entered" from="Characters/RightPlayer/RightNet" to="." method="_on_right_net_body_entered"]
+[connection signal="body_entered" from="Environment/LeftNet" to="." method="_on_left_net_body_entered"]
+[connection signal="body_entered" from="Environment/LeftNet" to="Characters/Ball" method="_on_left_net_body_entered"]
+[connection signal="body_entered" from="Environment/RightNet" to="." method="_on_right_net_body_entered"]
+[connection signal="body_entered" from="Environment/RightNet" to="Characters/Ball" method="_on_right_net_body_entered"]
