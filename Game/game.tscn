@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wl0xeg5i454u"]
+[gd_scene load_steps=9 format=3 uid="uid://wl0xeg5i454u"]
 
 [ext_resource type="PackedScene" uid="uid://bvnwcf8swnk2u" path="res://Game/barrier.tscn" id="1_8ylr5"]
 [ext_resource type="PackedScene" uid="uid://cfnoyoj8fxsam" path="res://Game/Ball/ball.tscn" id="1_m2emn"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://1enng0tjtprj" path="res://Game/Net/net.tscn" id="4_1nwfi"]
 [ext_resource type="Script" path="res://Game/Paddles/player_one_paddle.gd" id="4_yj01j"]
 [ext_resource type="Script" path="res://Game/Paddles/player_two_paddle.gd" id="5_rv1m6"]
+[ext_resource type="PackedScene" uid="uid://dsvcjq45hqi07" path="res://HUD/hud.tscn" id="8_71auk"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_vqh11")
@@ -14,10 +15,10 @@ script = ExtResource("1_vqh11")
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Background" type="ColorRect" parent="Environment"]
-offset_left = -1231.0
-offset_top = -627.0
-offset_right = 1271.0
-offset_bottom = 667.0
+offset_left = -1207.0
+offset_top = -610.0
+offset_right = 1295.0
+offset_bottom = 684.0
 color = Color(0, 0, 0, 1)
 
 [node name="Separator" type="ColorRect" parent="Environment"]
@@ -62,6 +63,14 @@ position = Vector2(750, 0)
 collision_layer = 2
 collision_mask = 9
 script = ExtResource("5_rv1m6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("8_71auk")]
+offset_left = -960.0
+offset_top = -542.0
+offset_right = -960.0
+offset_bottom = -542.0
 
 [connection signal="body_entered" from="Environment/LeftNet" to="." method="_on_left_net_body_entered"]
 [connection signal="body_entered" from="Environment/LeftNet" to="Characters/Ball" method="_on_left_net_body_entered"]

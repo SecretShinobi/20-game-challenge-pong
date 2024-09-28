@@ -1,4 +1,4 @@
-class_name Game
+class_name PongGame
 extends Node2D
 
 
@@ -7,10 +7,8 @@ var left_score: int = 0
 var right_score: int = 0
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+# Signals
+signal sample_text
 
 
 func _on_left_net_body_entered(body):
