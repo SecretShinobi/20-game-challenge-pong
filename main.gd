@@ -1,10 +1,5 @@
 extends Node2D
 
-# Variables
-var player_one_score = 0
-var player_two_score = 0
-
-
 # Signals
 
 
