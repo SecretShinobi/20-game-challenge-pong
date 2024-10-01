@@ -24,15 +24,15 @@ func _physics_process(delta):
 			velocity.y = (ball_y - paddle_y) * 5
 
 
-func reset_ball(direction):
+func reset_ball():
 	set_position(Vector2(0.0, 0.0))
-	set_velocity(Vector2(velocity.x * direction, 0.0))
+	set_velocity(Vector2(velocity.x, 0.0))
 
 
 # Signal Methods
 func _on_left_net_body_entered(body):
-	reset_ball(-1.0)
+	reset_ball()
 
 
 func _on_right_net_body_entered(body):
-	reset_ball(1.0)
+	reset_ball()

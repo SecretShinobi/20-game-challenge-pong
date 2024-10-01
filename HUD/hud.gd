@@ -11,6 +11,6 @@ extends Control
 @onready var right_score = $RightScore
 
 
-func _on_game_score_updated(left, right):
+func _on_game_player_scored(left, right):
 	left_score.set_text(str(left))
 	right_score.set_text(str(right))
