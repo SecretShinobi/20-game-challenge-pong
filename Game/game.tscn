@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dsvcjq45hqi07" path="res://HUD/hud.tscn" id="8_71auk"]
 
 [node name="Game" type="Node2D"]
+position = Vector2(960, 540)
 script = ExtResource("1_vqh11")
 
 [node name="Environment" type="Node2D" parent="."]
@@ -20,6 +21,7 @@ offset_top = -610.0
 offset_right = 1295.0
 offset_bottom = 684.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Separator" type="ColorRect" parent="Environment"]
 offset_left = -4.0
@@ -27,6 +29,7 @@ offset_top = -424.0
 offset_right = 4.0
 offset_bottom = 424.0
 color = Color(0.556953, 0.556953, 0.556953, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="BottomBarrier" parent="Environment" instance=ExtResource("1_8ylr5")]
 position = Vector2(0, 450)
@@ -67,11 +70,13 @@ script = ExtResource("5_rv1m6")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="CanvasLayer" instance=ExtResource("8_71auk")]
-offset_left = -960.0
-offset_top = -542.0
-offset_right = -960.0
-offset_bottom = -542.0
+offset_left = -3.0
+offset_top = 8.0
+offset_right = -3.0
+offset_bottom = 8.0
+metadata/_edit_use_anchors_ = true
 
+[connection signal="score_updated" from="." to="CanvasLayer/HUD" method="_on_game_score_updated"]
 [connection signal="body_entered" from="Environment/LeftNet" to="." method="_on_left_net_body_entered"]
 [connection signal="body_entered" from="Environment/LeftNet" to="Characters/Ball" method="_on_left_net_body_entered"]
 [connection signal="body_entered" from="Environment/RightNet" to="." method="_on_right_net_body_entered"]

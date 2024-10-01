@@ -6,10 +6,6 @@ extends CharacterBody2D
 ## game. The movement and behavior of the ball can be adjusted here
 
 
-# Signals
-signal player_scored(player)
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	velocity = Vector2(-500.0, 0.0)

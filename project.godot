@@ -14,7 +14,7 @@ config/name="Pong"
 config/description="This is the my attempt for the first game for the 20 games challenge (pong)"
 config/version="1.0"
 config/tags=PackedStringArray("20_game_challenge", "2d", "pong")
-run/main_scene="res://main.tscn"
+run/main_scene="res://Game/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
