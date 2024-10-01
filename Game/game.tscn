@@ -16,10 +16,10 @@ script = ExtResource("1_vqh11")
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Background" type="ColorRect" parent="Environment"]
-offset_left = -1207.0
-offset_top = -610.0
-offset_right = 1295.0
-offset_bottom = 684.0
+offset_left = -1048.0
+offset_top = -524.0
+offset_right = 1454.0
+offset_bottom = 770.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -75,6 +75,7 @@ offset_top = 8.0
 offset_right = -3.0
 offset_bottom = 8.0
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [connection signal="score_updated" from="." to="CanvasLayer/HUD" method="_on_game_score_updated"]
 [connection signal="body_entered" from="Environment/LeftNet" to="." method="_on_left_net_body_entered"]

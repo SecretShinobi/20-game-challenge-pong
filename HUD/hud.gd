@@ -11,11 +11,6 @@ extends Control
 @onready var right_score = $RightScore
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 func _on_game_score_updated(left, right):
 	left_score.set_text(str(left))
 	right_score.set_text(str(right))
