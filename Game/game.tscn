@@ -16,10 +16,10 @@ script = ExtResource("1_vqh11")
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Background" type="ColorRect" parent="Environment"]
-offset_left = -1207.0
-offset_top = -610.0
-offset_right = 1295.0
-offset_bottom = 684.0
+offset_left = -1048.0
+offset_top = -524.0
+offset_right = 1454.0
+offset_bottom = 770.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
@@ -59,12 +59,14 @@ collision_mask = 7
 position = Vector2(-750, 0)
 collision_layer = 2
 collision_mask = 9
+motion_mode = 1
 script = ExtResource("4_yj01j")
 
 [node name="RightPaddle" parent="Characters" instance=ExtResource("2_o55df")]
 position = Vector2(750, 0)
 collision_layer = 2
 collision_mask = 9
+motion_mode = 1
 script = ExtResource("5_rv1m6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -76,7 +78,9 @@ offset_right = -3.0
 offset_bottom = 8.0
 metadata/_edit_use_anchors_ = true
 
-[connection signal="score_updated" from="." to="CanvasLayer/HUD" method="_on_game_score_updated"]
+[connection signal="player_scored" from="." to="Characters/LeftPaddle" method="_on_game_player_scored"]
+[connection signal="player_scored" from="." to="Characters/RightPaddle" method="_on_game_player_scored"]
+[connection signal="player_scored" from="." to="CanvasLayer/HUD" method="_on_game_player_scored"]
 [connection signal="body_entered" from="Environment/LeftNet" to="." method="_on_left_net_body_entered"]
 [connection signal="body_entered" from="Environment/LeftNet" to="Characters/Ball" method="_on_left_net_body_entered"]
 [connection signal="body_entered" from="Environment/RightNet" to="." method="_on_right_net_body_entered"]

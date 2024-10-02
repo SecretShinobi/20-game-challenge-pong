@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity = Vector2(-500.0, 0.0)
+	set_velocity(Vector2(-500.0, 0.0))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,13 +20,13 @@ func _physics_process(delta):
 		if collision.get_collider() is CharacterBody2D:
 			var ball_y: float = get_global_position().y
 			var paddle_y: float = collision.get_collider().get_global_position().y
-			#velocity.x *= 1.1
+			#velocity.x *= 1.1 # Increase speed for each bounce
 			velocity.y = (ball_y - paddle_y) * 5
 
 
 func reset_ball():
-	print("ball should be reset to default position")
-	print("ball should also move towards the side that lost that round")
+	set_position(Vector2(0.0, 0.0))
+	set_velocity(Vector2(velocity.x, 0.0))
 
 
 # Signal Methods
